@@ -1,0 +1,23 @@
+<footer>
+    <nav>
+        <ul>
+		    <li>
+               <a href="about">Terms of Service</a>
+            </li>
+		</ul>
+    </nav>
+    <div class="logo h-card">
+        <a class="u-url" href="{{ .Site.Home.Permalink }}">
+            <img alt="Site Logo" class="site-logo u-photo" src="{{ $.Site.Params.logo | default "/images/logo.png" }}"/>
+        </a>
+        <p>© {{ now.Format "2006" }}
+            {{ .Site.Title }}</p>
+    </div>
+    <nav>
+        <ul>
+		    <li>
+               <a href="about">Privacy Policy</a>
+            </li>
+        </ul>
+    </nav>
+</footer>
