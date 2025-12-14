@@ -7,11 +7,8 @@
 		</ul>
     </nav>
     <div class="logo h-card">
-        <a class="u-url" href="{{ .Site.Home.Permalink }}">
-            <img alt="Site Logo" class="site-logo u-photo" src="{{ $.Site.Params.logo | default "/images/logo.png" }}"/>
-        </a>
-        <p>© {{ now.Format "2006" }}
-            {{ .Site.Title }}</p>
+        <p>{{ .Site.Title }}</p>
+        <p>© {{ now.Format "2006" }}</p>
     </div>
     <nav>
         <ul>
@@ -21,3 +18,43 @@
         </ul>
     </nav>
 </footer>
+
+{{ if .IsHome }}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.getElementById('header');
+  const heroHeight = document.querySelector('.hero').offsetHeight;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY >= heroHeight) {
+      header.classList.add('fixed');
+      header.style.opacity = 1;
+    } else {
+      header.classList.remove('fixed');
+      // Calculate opacity: 0 at top, 1 at bottom of hero
+      const opacity = scrollY / heroHeight;
+      header.style.opacity = opacity;
+    }
+  });
+});
+</script>
+{{ else }}
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+/*    box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
+  }
+
+  main {
+    margin-top: 80px; /* adjust to match header height */
+  }
+</style>
+
+{{ end }}

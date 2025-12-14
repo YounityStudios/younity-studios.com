@@ -1,9 +1,23 @@
-<header>
-    <div class="logo h-card">
-        <a class="u-url" href="{{ .Site.Home.Permalink }}">
-            <img alt="Site Logo" class="site-logo u-photo" src="{{ $.Site.Params.logo | default "/images/younity-studios-final-logo-square.png" }}"/>
-        </a>
-    </div>
+
+{{ if .IsHome }}
+    <section class="hero">
+	    <img src="/images/logo.png">
+		<!--
+        <h1 class="p-name">{{ .Title }}</h1>
+		<p class="subtitle">{{ .Params.description }}</p>
+		<p>{{ .Content }}</p>
+		-->
+		<div class="scroll-down">
+			<a href="#header">↓</a>
+		</div>
+	</section>
+{{ end }}
+	<header id="header">
+		<div class="logo h-card">
+			<a class="u-url" href="{{ .Site.Home.Permalink }}">
+				<img alt="Site Logo" class="site-logo u-photo" src="{{ $.Site.Params.logo | default "/images/logo-head.png" }}"/>
+			</a>
+		</div>
 <!--
     <nav>
     <div class="social-media">
@@ -13,13 +27,15 @@
     </div>
     </nav>
 -->
-    <nav class="menu">
-        <ul>
+		<nav class="menu">
+			<ul>
             {{- range site.Menus.main }}
                 <li>
-                    <a href="{{ .URL }}">{{ .Name }}</a>
-                </li>
+					<a href="{{ .URL }}">{{ .Name }}</a>
+				</li>
             {{- end }}
         </ul>
-    </nav>
-</header>
+		</nav>
+	</header>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
