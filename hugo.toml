@@ -13,6 +13,7 @@ useToc = false                      # Set to true to show a Table of Contents on
 
 #contact = "You can write me an [email](mailto:me)."
 
+
 #[[params.social]]
 #    url = "https://x.com"
 #    icon = "/social/x.svg"

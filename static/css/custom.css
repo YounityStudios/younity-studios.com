@@ -8,21 +8,6 @@
     --borders: #555;
 }
 
-/*
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-bg: #252627;
-        --primary-text: #fff;
-        --secondary-text: #fefefe;
-        --link-color: #9fb1b6;
-    }
-
-    img {
-        opacity: 90%;
-    }
-}
-*/
-
 /* Font Faces */
 @font-face {
     font-family: 'OpenSauceOne';
@@ -63,7 +48,7 @@ html {
     background-color: var(--primary-bg);
 	margin: 0;
 	padding: 0;
-	font-family: exo, sans-serif;
+	font-family: 'OpenSauceOne', sans-serif;
     scroll-behavior: smooth;
 	position: relative;   /* Relative to viewport */
 	top: 0;            /* Anchors it to the top */

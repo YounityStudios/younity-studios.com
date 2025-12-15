@@ -2,9 +2,8 @@
 title: 'Exploring Markdown: A Comprehensive Guide'
 date: '2024-05-05T18:28:34.730Z'
 draft: false
-description: >-
-  Welcome to this comprehensive guide on Markdown! Markdown is a lightweight
-  markup language that allows...
+description: Welcome to this comprehensive guide on Markdown! Markdown is a lightweight  markup language that allows...
+unlisted: true
 ---
 Welcome to this comprehensive guide on Markdown! Markdown is a lightweight markup language that allows you to add formatting elements to plain text. In this post, we'll explore various Markdown elements and how they can be used to structure and style your content effectively.
 

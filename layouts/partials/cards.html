@@ -1,6 +1,6 @@
-{{ $paginator := .Paginator }}
+ {{ $paginator := .Paginator }}
 {{ if .IsHome }}
-  {{ $posts := where .Site.RegularPages "Section" "Portfolio" }}  <!-- Assuming 'content/Portfolio' is the section for posts -->
+  {{ $posts := where .Site.RegularPages "Section" "About" }}  <!-- Assuming 'content/About' is the section for posts -->
   {{ $paginator := .Paginate ($posts) }}
 {{ else }}
   {{ $currentSection := .Section }}
@@ -28,10 +28,10 @@
     {{ end }}
 </div>
 <!-- Pagination links -->
-{{ if gt $paginator.TotalPages 1 }}
+{{ if gt $paginator.TotalPages 2 }}
     <div class="pagination">
         {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}">before</a>
+            <a href="{{ $paginator.Prev.URL }}">previous</a>
         {{ else }}
             <p></p>
         {{ end }}
