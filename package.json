@@ -1,7 +1,9 @@
 {
   "author": "Younity Studios",
   "comments": {
-    "dependencies": {},
+    "dependencies": {
+      "go": "project"
+    },
     "devDependencies": {
       "@fontsource/mulish": "project",
       "@fortawesome/fontawesome-free": "project",
@@ -19,6 +21,9 @@
       "flag-icons": "project",
       "fuse.js": "project",
       "highlight.js": "project",
+      "hugo": "project",
+      "hugo-bin": "project",
+      "hugo-installer": "project",
       "imagesloaded": "project",
       "include-media": "project",
       "ityped": "project",
@@ -31,19 +36,23 @@
       "postcss-cli": "project"
     }
   },
+  "dependencies": {
+    "go": "^3.0.1"
+  },
   "description": "website @ https://www.younity-studios.com",
   "devDependencies": {
     "@fontsource/mulish": "5.2.8",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "autoprefixer": "^10.4.23",
     "bootstrap": "^5.3.8",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
+
+    "eslint": "8.57.1",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-n": "^17.23.1",
+    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-promise": "^6.6.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-no-jquery": "^3.1.1",
-    "eslint-plugin-promise": "^7.2.1",
     "feather-icons": "^4.29.2",
     "filterizr": "^2.2.4",
     "flag-icons": "^7.5.0",
@@ -76,14 +85,11 @@
   "name": "younity-studios.com",
   "scripts": {
     "hugo": "hugo",
-    "hugo:clean": "hugo mod clean --all",
-    "hugo:modupdate": "hugo mod clean --all && ncu -u && npm install",
     "hugo:build": "hugo mod clean --all && hugo mod get -u && hugo mod tidy && hugo mod npm pack && npm install && attr -s com.dropbox.ignored -V 1 node_modules && attr -s com.dropbox.ignored -V 1 public && attr -s com.dropbox.ignored -V 1 resources && hugo --minify",
+    "hugo:clean": "hugo mod clean --all",
     "hugo:dev": "hugo mod clean --all && hugo server --minify --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --buildDrafts --buildExpired --buildFuture --watch --forceSyncStatic -D",
+    "hugo:modupdate": "hugo mod clean --all && ncu -u && npm install",
     "hugo:server": "hugo mod clean --all && attr -s com.dropbox.ignored -V 1 node_modules && attr -s com.dropbox.ignored -V 1 public && attr -s com.dropbox.ignored -V 1 resources && hugo server --minify --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --buildFuture --watch --forceSyncStatic --poll 700ms"
   },
-  "version": "2.0.0",
-  "dependencies": {
-    "go": "^3.0.1"
-  }
+  "version": "2.0.0"
 }
