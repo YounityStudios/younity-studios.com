@@ -85,11 +85,11 @@
   "name": "younity-studios.com",
   "scripts": {
     "hugo": "hugo",
-    "hugo:build": "hugo mod clean --all && hugo mod get -u && hugo mod tidy && hugo mod npm pack && npm install && attr -s com.dropbox.ignored -V 1 node_modules && attr -s com.dropbox.ignored -V 1 public && attr -s com.dropbox.ignored -V 1 resources && hugo --minify",
+    "hugo:build": "hugo mod clean --all && hugo mod get -u && hugo mod tidy && hugo mod npm pack && npm install && hugo --minify",
     "hugo:clean": "hugo mod clean --all",
     "hugo:dev": "hugo mod clean --all && hugo server --minify --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --buildDrafts --buildExpired --buildFuture --watch --forceSyncStatic -D",
     "hugo:modupdate": "hugo mod clean --all && ncu -u && npm install",
-    "hugo:server": "hugo mod clean --all && attr -s com.dropbox.ignored -V 1 node_modules && attr -s com.dropbox.ignored -V 1 public && attr -s com.dropbox.ignored -V 1 resources && hugo server --minify --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --buildFuture --watch --forceSyncStatic --poll 700ms"
+    "hugo:server": "hugo mod clean --all && hugo server --minify --disableFastRender --navigateToChanged --templateMetrics --templateMetricsHints --buildFuture --watch --forceSyncStatic --poll 700ms"
   },
   "version": "2.0.0"
 }
