@@ -1,4 +1,4 @@
-baseURL = "https://www.younity-studios.com/"
+baseURL = "https://www.younitystudios.com/"
 languageCode = "en-us"
 title = "Younity | Studios"
 themes = "quint"
@@ -25,11 +25,11 @@ useToc = false                      # Set to true to show a Table of Contents on
 #     name = "Email"
 
 [[params.social]]
-    url = "https://www.younity-studios.com/privacy-policy"
+    url = "https://www.younitystudios.com/privacy-policy"
     icon = "/icons/privacy-policy.svg"
     name = "Privacy Policy"
 
 [[params.social]]
-    url = "https://www.younity-studios.com/terms-of-service"
+    url = "https://www.younitystudios.com/terms-of-service"
     icon = "/icons/terms-of-service.svg"
     name = "Terms of Service"

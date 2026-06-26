@@ -39,7 +39,7 @@
   "dependencies": {
     "go": "^3.0.1"
   },
-  "description": "website @ https://www.younity-studios.com",
+  "description": "website @ https://www.younitystudios.com",
   "devDependencies": {
     "@fontsource/mulish": "5.2.8",
     "@fortawesome/fontawesome-free": "^7.1.0",
@@ -82,7 +82,7 @@
     "creative"
   ],
   "license": "ISC",
-  "name": "younity-studios.com",
+  "name": "younitystudios.com",
   "scripts": {
     "hugo": "hugo",
     "hugo:build": "hugo mod clean --all && hugo mod get -u && hugo mod tidy && hugo mod npm pack && npm install && hugo --minify",
