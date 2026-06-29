@@ -46,7 +46,7 @@ jobs:
       - name: Clone public repo into ./public
         run: |
           rm -rf public
-          git clone git@github-pages-target:YOUR_USER_OR_ORG/www.younitypages.com.git public
+          git clone git@github-pages-target:YounityStudios/www.younitypages.com.git public
 
       - name: Clean existing generated files
         run: |
