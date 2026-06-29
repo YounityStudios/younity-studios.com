@@ -28,25 +28,10 @@ jobs:
         with:
           hugo-version: '0.153.1'
 
-      - name: Setup SSH deploy key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.PAGES_DEPLOY_KEY }}" > ~/.ssh/pages_deploy_key
-          chmod 600 ~/.ssh/pages_deploy_key
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-          cat > ~/.ssh/config <<EOF
-          Host github-pages-target
-            HostName github.com
-            User git
-            IdentityFile ~/.ssh/pages_deploy_key
-            IdentitiesOnly yes
-          EOF
-
       - name: Clone public repo into ./public
         run: |
           rm -rf public
-          git clone git@github.com:YounityStudios/www.younitystudios.com.git public
+          git clone https://x-access-token:${{ secrets.PAGES_REPO_TOKEN }}@github.com/YounityStudios/www.younitystudios.com.git public
 
       - name: Clean existing generated files
         run: |
