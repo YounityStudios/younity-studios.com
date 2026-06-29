@@ -1,0 +1,75 @@
+# Build private Hugo repo @younitystudios.com and publish 
+# generated static site to public repo @www.younitystudios.com
+name: Deploy static content to public repo
+
+on:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private Hugo source
+        uses: actions/checkout@v5
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.153.1'
+
+      - name: Setup SSH deploy key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PAGES_DEPLOY_KEY }}" > ~/.ssh/pages_deploy_key
+          chmod 600 ~/.ssh/pages_deploy_key
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+          cat > ~/.ssh/config <<EOF
+          Host github-pages-target
+            HostName github.com
+            User git
+            IdentityFile ~/.ssh/pages_deploy_key
+            IdentitiesOnly yes
+          EOF
+
+      - name: Clone public repo into ./public
+        run: |
+          rm -rf public
+          git clone git@github-pages-target:YOUR_USER_OR_ORG/www.younitypages.com.git public
+
+      - name: Clean existing generated files
+        run: |
+          find public -mindepth 1 \
+            ! -name ".git" \
+            ! -path "public/.git/*" \
+            -exec rm -rf {} +
+
+      - name: Build static content
+        run: npm run hugo:build
+
+      - name: Commit and push generated site
+        working-directory: public
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+
+          git commit -m "Deploy Hugo site"
+          git push origin main
