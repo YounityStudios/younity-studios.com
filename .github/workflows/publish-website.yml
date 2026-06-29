@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout private Hugo source
         uses: actions/checkout@v5
+        with:
+              persist-credentials: false
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -48,6 +50,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git remote set-url origin https://x-access-token:${{ secrets.PAGES_REPO_TOKEN }}@github.com/YounityStudios/www.younitystudios.com.git
 
           git add -A
 
